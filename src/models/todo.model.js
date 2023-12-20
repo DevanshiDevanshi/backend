@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const TodoSchema = new mongoose.Schema({
+export const TodoSchema = new mongoose.Schema({
   id: String,
   task: String,
   status: String,

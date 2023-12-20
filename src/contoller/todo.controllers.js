@@ -3,6 +3,7 @@ import { Todo } from "../models/todo.model.js";
 export const addTodo = async (req, res) => {
   try {
     console.log(`Adding Todo`);
+
     const newTodo = new Todo(req.body);
     await newTodo.save();
     res.status(200).send(newTodo);
@@ -14,6 +15,7 @@ export const addTodo = async (req, res) => {
 export const getTodos = async (req, res) => {
   try {
     console.log(`Getting Todos`);
+
     const todos = await Todo.find({});
     res.status(200).send(todos);
   } catch (error) {
@@ -23,7 +25,7 @@ export const getTodos = async (req, res) => {
 export const deleteTodo = async (req, res) => {
   const requestedID = req.params.id;
   try {
-    console.log(`Deleting Todo`, requestId);
+    console.log(`Deleting Todo`, requestedID);
 
     const todo = await Todo.deleteOne({ id: requestedID });
 
