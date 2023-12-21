@@ -5,9 +5,9 @@ const app = express();
 import routes from "./src/routes/index.js";
 import { connectToMongo } from "./src/config/mongoose.js";
 
-//Middleware
-app.use(express.json());
-app.use(cors());
+//Middlewares
+app.use(express.json()); // convert the req that was sent to the server to json.
+app.use(cors()); // allows some specific domain to access the server, here it's allowing all origins.
 
 app.use("/", routes);
 
